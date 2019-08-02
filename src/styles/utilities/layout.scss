@@ -1,0 +1,55 @@
+.l-inner {
+  width: 940px;
+  margin: 0 auto;
+}
+
+$gaps: $gap-0, $gap-1, $gap-2, $gap-3, $gap-4, $gap-5, $gap-6;
+@for $i from 1 through length($gaps) {
+  $gap: nth($gaps, $i);
+  .l-mt#{$i - 1} {
+    margin-top: $gap !important;
+  }
+  .l-mb#{$i - 1} {
+    margin-bottom: $gap !important;
+  }
+  .l-ml#{$i - 1} {
+    margin-left: $gap !important;
+  }
+  .l-mr#{$i - 1} {
+    margin-right: $gap !important;
+  }
+  .l-my#{$i - 1} {
+    margin-top: $gap !important;
+    margin-bottom: $gap !important;
+  }
+  .l-mx#{$i - 1} {
+    margin-right: $gap !important;
+    margin-left: $gap !important;
+  }
+  .l-ma#{$i - 1} {
+    margin: $gap !important;
+  }
+  .l-pt#{$i - 1} {
+    padding-top: $gap !important;
+  }
+  .l-pb#{$i - 1} {
+    padding-bottom: $gap !important;
+  }
+  .l-pl#{$i - 1} {
+    padding-left: $gap !important;
+  }
+  .l-pr#{$i - 1} {
+    padding-right: $gap !important;
+  }
+  .l-py#{$i - 1} {
+    padding-top: $gap !important;
+    padding-bottom: $gap !important;
+  }
+  .l-px#{$i - 1} {
+    padding-right: $gap !important;
+    padding-left: $gap !important;
+  }
+  .l-pa#{$i - 1} {
+    padding: $gap !important;
+  }
+}
