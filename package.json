@@ -1,11 +1,13 @@
 {
   "scripts": {
     "build:ejs": "ejs-cli -b src/ '*.ejs' -o ./dist",
-    "build:scss": "node-sass ./src/styles/style.scss ./dist/style.css --source-map ./dist",
     "watch:ejs": "nodemon --watch src -e ejs -x \"npm run build:ejs \"",
+    "build:scripts": "parcel build src/scripts/scripts.ts",
+    "watch:scripts": "parcel watch src/scripts/scripts.ts",
     "build:copy": "ncp ./src/assets ./dist/assets",
     "watch:copy": "nodemon --watch src/assets -e png,jpg -x \"npm run build:copy \"",
     "watch:scss": "nodemon --watch src -e scss -x \"npm run build:scss \"",
+    "build:scss": "node-sass ./src/styles/style.scss ./dist/style.css --source-map ./dist",
     "build": "npm-run-all -s clean build:*",
     "watch": "npm-run-all -p watch:*",
     "clean": "rimraf dist && mkdirp dist/assets",
@@ -24,6 +26,8 @@
     "node-sass": "^4.12.0",
     "nodemon": "^1.19.1",
     "npm-run-all": "^4.1.5",
-    "rimraf": "^2.6.3"
+    "parcel": "^1.12.3",
+    "rimraf": "^2.6.3",
+    "typescript": "^3.5.3"
   }
 }
