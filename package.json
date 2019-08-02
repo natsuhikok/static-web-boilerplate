@@ -1,0 +1,29 @@
+{
+  "scripts": {
+    "build:ejs": "ejs-cli -b src/ '*.ejs' -o ./dist",
+    "build:scss": "node-sass ./src/styles/style.scss ./dist/style.css --source-map ./dist",
+    "watch:ejs": "nodemon --watch src -e ejs -x \"npm run build:ejs \"",
+    "build:copy": "ncp ./src/assets ./dist/assets",
+    "watch:copy": "nodemon --watch src/assets -e png,jpg -x \"npm run build:copy \"",
+    "watch:scss": "nodemon --watch src -e scss -x \"npm run build:scss \"",
+    "build": "npm-run-all -s clean build:*",
+    "watch": "npm-run-all -p watch:*",
+    "clean": "rimraf dist && mkdirp dist/assets",
+    "server": "browser-sync start --server 'dist/' --files 'dist/' --port 8080 --no-ui",
+    "serve": "npm-run-all -p server watch",
+    "dev": "npm-run-all -s build serve",
+    "start": "npm-run-all -p dev",
+    "before:commit": "npm-run-all build"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "ejs-cli": "^2.0.1",
+    "imagemin-cli": "^4.0.1",
+    "mkdirp": "^0.5.1",
+    "ncp": "^2.0.0",
+    "node-sass": "^4.12.0",
+    "nodemon": "^1.19.1",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^2.6.3"
+  }
+}
